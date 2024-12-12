@@ -593,15 +593,15 @@ function YourDelivery($nick){
     
 }
 
-function AddRegistration($firstname, $surname, $nick, $password, $phone, $email){
+function AddRegistration($firstname, $surname, $nick, $password, $phone, $email, $delivery){
 
     $conn = DbConnection();
     
     // Předpřipravený dotaz
-    $stmt = $conn->prepare("INSERT INTO persons (FirstName, SurName, Nick, Password, Phone, Email, Sweet, Nicotine, Price, Delivery) VALUES (?, ?, ?, ?, ?, ?, 0, 0, 0, 0)");
+    $stmt = $conn->prepare("INSERT INTO persons (FirstName, SurName, Nick, Password, Phone, Email, Sweet, Nicotine, Price, Delivery) VALUES (?, ?, ?, ?, ?, ?, 0, 0, 0, ?)");
 
     // Propojení parametrů
-    $stmt->bind_param("ssssis", $firstname, $surname, $nick, $password, $phone, $email);
+    $stmt->bind_param("ssssisi", $firstname, $surname, $nick, $password, $phone, $email, $delivery);
 
     // Provedení dotazu
     if ($stmt->execute()) {
