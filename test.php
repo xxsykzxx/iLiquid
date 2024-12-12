@@ -37,7 +37,7 @@
 
         <!-- Formulář pro jméno a příjmení -->
         <form id="mainForm" action="submit.php" method="POST">
-            
+
             <div class="mb-3">
                 <label for="firstName" class="form-label">Jméno</label>
                 <input type="text" class="form-control" id="firstName" name="first_name" required>
@@ -81,6 +81,8 @@
             </div>
         </form>
 </div>
+
+<h1> Tohle jsem přidal </h1>
 
 
 
