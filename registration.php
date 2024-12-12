@@ -1,4 +1,4 @@
-<!doctype html>
+    <!doctype html>
 <html lang="cs">
   <head>
     <title>iLiquid</title>
@@ -58,9 +58,31 @@
 
                                 <hr>
 
-                                <p class="text-white-50 mb-3">Přihlašovací údaje!</p>
-
                                 <form action="registration-submit.php" method="post">
+
+                                    <!-- Kontaktní údaje --> 
+                                    <p class="text-white-50 mb-3">Kontaktní údaje</p>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div data-mdb-input-init class="form-outline form-white">
+                                                <input type="text" name="firstname" id="typeEmailX" class="form-control form-control-md" required />
+                                                <label class="form-label mt-1" for="typeEmailX">Jméno</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div data-mdb-input-init class="form-outline form-white">
+                                                <input type="text" name="surname" id="typeEmailX" class="form-control form-control-md" required />
+                                                <label class="form-label mt-1" for="typeEmailX">Příjmení</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Přihlašovací údaje --> 
+                                    <p class="text-white-50 mb-3">Přihlašovací údaje!</p>
+
                                     <div data-mdb-input-init class="form-outline form-white mb-3">
                                         <input type="text" name="nickname" id="typeEmailX" class="form-control form-control-md" required />
                                         <label class="form-label mt-1" for="typeEmailX">Přihlašovací jméno</label>
@@ -74,58 +96,75 @@
                                     <div data-mdb-input-init class="form-outline form-white mb-2">
                                         <input type="password" name="password2" id="typePasswordX" class="form-control form-control-md" required />
                                         <label class="form-label mt-1" for="typePasswordX">Heslo znovu</label>
-                                    </div>  
+                                    </div>
 
                                     <hr>
+                                    
+                                    <!-- Tlačítko - Výběr odběru (osobní / dodání) -->
+                                    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active text-white" id="pills-personal-tab" data-bs-toggle="pill" data-bs-target="#pills-personal" type="button" role="tab" aria-controls="pills-personal" aria-selected="true">
+                                                <u>Osobní odběr</u>
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link text-white" id="pills-address-tab" data-bs-toggle="pill" data-bs-target="#pills-address" type="button" role="tab" aria-controls="pills-address" aria-selected="false">
+                                                <u>Poslat na adresu</u>
+                                            </button>
+                                        </li>
+                                    </ul>
 
-                                    <p class="text-white-50 mb-3">Kontaktní údaje!</p>
+                                    <!-- Výběr odběru (osobní / dodání) --> 
+                                    <div class="tab-content" id="pills-tabContent">
 
-                                    <div data-mdb-input-init class="form-outline form-white mb-2">
-                                        <input type="email" name="email" id="typePasswordX" class="form-control form-control-md" required />
-                                        <label class="form-label mt-1" for="typePasswordX">E-mail</label>
-                                    </div> 
-
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                <input type="text" name="firstname" id="typeEmailX" class="form-control form-control-md" required />
-                                                <label class="form-label mt-1" for="typeEmailX">Jméno</label>
-                                            </div>
+                                        <!-- Sekce Osobní odběr -->
+                                        <div class="tab-pane fade show active" id="pills-personal" role="tabpanel" aria-labelledby="pills-personal-tab">
+                                            <input class="btn btn-outline-light btn-lg px-5" type="submit" name="osobni" value="Registrovat se" />
+                                            <!-- <input type="hidden" name="delivery_method" value="osobni"> -->
+                                            <!-- <button type="submit" class="btn btn-outline-light btn-lg px-5 mt-3">Registrovat se 4</button> -->
                                         </div>
-                                        <div class="col-6">
-                                            <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                <input type="text" name="surname" id="typeEmailX" class="form-control form-control-md" required />
-                                                <label class="form-label mt-1" for="typeEmailX">Příjmení</label>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div data-mdb-input-init class="form-outline form-white mb-3">
-                                        <input type="text" name="address" id="typeEmailX" class="form-control form-control-md" required />
-                                        <label class="form-label mt-1" for="typeEmailX">Adresa</label>
-                                    </div>
+                                        <!-- Sekce Poslat na adresu -->
+                                        <div class="tab-pane fade" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
 
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                <input type="text" name="city" id="typeEmailX" class="form-control form-control-md" required />
-                                                <label class="form-label mt-1" for="typeEmailX">Město</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                <input type="text" name="psc" id="typeEmailX" class="form-control form-control-md" minlength="5" maxlength="5" pattern="[0-9]{5}" required title="Zadejte přesně 5 čísel." />
-                                                <label class="form-label mt-1" for="typeEmailX">PSČ</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            <p class="text-white-50 mb-3">Doručovací údaje!</p>
 
-                                    <div data-mdb-input-init class="form-outline form-white mb-3">
-                                        <input type="text" name="phone" id="typeEmailX" class="form-control form-control-md" pattern="(\+420)?[0-9]{9}" title="Zadejte platné telefonní číslo. Může začínat +420 a musí obsahovat 9 číslic." required />
-                                        <label class="form-label mt-1" for="typeEmailX">Telefonní číslo</label>
-                                    </div>
-                               
-                                    <input class="btn btn-outline-light btn-lg px-5" type="submit" value="Registrovat se">
+                                            <div data-mdb-input-init class="form-outline form-white mb-2">
+                                                <input type="email" name="email" id="typePasswordX" class="form-control form-control-md"  />
+                                                <label class="form-label mt-1" for="typePasswordX">E-mail</label>
+                                            </div> 
+
+                                            <div data-mdb-input-init class="form-outline form-white mb-3">
+                                                <input type="text" name="address" id="typeEmailX" class="form-control form-control-md"  />
+                                                <label class="form-label mt-1" for="typeEmailX">Adresa</label>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-8">
+                                                    <div data-mdb-input-init class="form-outline form-white mb-3">
+                                                        <input type="text" name="city" id="typeEmailX" class="form-control form-control-md"  />
+                                                        <label class="form-label mt-1" for="typeEmailX">Město</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div data-mdb-input-init class="form-outline form-white mb-3">
+                                                        <input type="text" name="psc" id="typeEmailX" class="form-control form-control-md" />
+                                                        <label class="form-label mt-1" for="typeEmailX">PSČ</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div data-mdb-input-init class="form-outline form-white mb-3">
+                                                <input type="text" name="phone" id="typeEmailX" class="form-control form-control-md" />
+                                                <label class="form-label mt-1" for="typeEmailX">Telefonní číslo</label>
+                                            </div>
+                                            
+                                            <input class="btn btn-outline-light btn-lg px-5" type="submit" name="adresa" value="Registrovat se" />
+                                            <!-- <input type="hidden" name="delivery_method2" value="adresa"> -->
+                                            <!-- <button type="submit" class="btn btn-outline-light btn-lg px-5">Registrovat se 2</button> -->
+
+                                        </div>
+                                    </div>                    
 
                                 </form> 
 
