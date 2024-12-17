@@ -664,3 +664,93 @@ function AddResidence($address, $city, $psc,$person_id){
         exit;
     }
 }
+
+function SelectPersonoffices_id($nickname){
+
+    $conn = DbConnection();
+
+    $stmt = $conn->prepare("SELECT personoffices.ID FROM personoffices JOIN persons ON persons.id = personoffices.person_id Where persons.Nick = ?");
+
+    $stmt->bind_param("s", $nickname);
+
+    // Provedení dotazu
+    if ($stmt->execute()) {
+        
+        // Získání výsledku
+        $result = $stmt->get_result();
+
+        // Zpracování výsledku
+        if ($row = $result->fetch_assoc()) {
+           return $row['ID'];
+        } else {
+            return 'chyba';
+        }
+        exit;
+    } else {
+        echo "Chyba: " . $stmt->error;
+        //return FALSE;
+        exit;
+    }
+
+}
+
+function AddOrder($status, $user, $person_office_id, $total, $paid, $date, $time){
+    $conn = DbConnection();
+
+    $query = ("INSERT INTO Orders (Status, Nick, Person_office_id, Total, Paid, Date, Time) VALUES (?, ?, ?, ?, ?, ?, ?)");   
+    $stmt = $conn->prepare($query);
+    
+    $stmt->bind_param("ssiisss", $status, $user, $person_office_id, $total, $paid, $date, $time);
+
+    // Provedení dotazu
+    if ($stmt->execute()) {
+        //echo "Nový záznam byl úspěšně přidán";
+        return True;
+        exit;
+    } else {
+        echo "Chyba: " . $stmt->error;
+        return FALSE;
+        exit;
+    }
+
+}
+
+function getLastOrderId() {
+    $conn = DbConnection();
+
+    $sql = "SELECT MAX(id) AS last_id FROM orders";
+    $result = $conn->query($sql);
+
+    if ($result && $row = $result->fetch_assoc()) {
+        return $row['last_id'];
+    }
+
+    return null; // Pokud se dotaz nezdaří nebo tabulka je prázdná
+}
+
+
+function AddOrdersRows($cart, $order_id){
+    $conn = DbConnection();
+
+    //print_r ($cart);
+    //echo 'OrderID = ' . $order_id;
+
+    // Přidej položky do tabulky OrderRows
+    $query = "INSERT INTO ordersrows (Orders_id, code, quantity) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($query);
+
+    foreach ($cart as $code => $quantity) {
+        //echo $code . '<br>';
+        $stmt->bind_param('isi', $order_id, $code, $quantity);
+        if(!$stmt->execute()){
+            echo "Chyba: " . $stmt->error;
+            exit;
+        }
+    }
+
+    return True;
+
+
+
+    
+}

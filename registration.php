@@ -58,20 +58,21 @@
 
                                 <hr>
 
-                                <form action="registration-submit.php" method="post">
+                                <form id="mainForm" action="registration-submit.php" method="post">
 
                                     <!-- Kontaktní údaje --> 
                                     <p class="text-white-50 mb-3">Kontaktní údaje</p>
 
                                     <div class="row">
                                         <div class="col-6">
-                                            <div data-mdb-input-init class="form-outline form-white">
+                                            <div class="form-o  utline form-white">
                                                 <input type="text" name="firstname" id="typeEmailX" class="form-control form-control-md" required />
                                                 <label class="form-label mt-1" for="typeEmailX">Jméno</label>
                                             </div>
                                         </div>
+                                        
                                         <div class="col-6">
-                                            <div data-mdb-input-init class="form-outline form-white">
+                                            <div class="form-outline form-white">
                                                 <input type="text" name="surname" id="typeEmailX" class="form-control form-control-md" required />
                                                 <label class="form-label mt-1" for="typeEmailX">Příjmení</label>
                                             </div>
@@ -83,22 +84,47 @@
                                     <!-- Přihlašovací údaje --> 
                                     <p class="text-white-50 mb-3">Přihlašovací údaje!</p>
 
-                                    <div data-mdb-input-init class="form-outline form-white mb-3">
+                                    <div class="form-outline form-white mb-3">
                                         <input type="text" name="nickname" id="typeEmailX" class="form-control form-control-md" required />
                                         <label class="form-label mt-1" for="typeEmailX">Přihlašovací jméno</label>
                                     </div>
 
-                                    <div data-mdb-input-init class="form-outline form-white mb-3">
+                                    <div class="form-outline form-white mb-3">
                                         <input type="password" name="password" id="typePasswordX" class="form-control form-control-md" required />
                                         <label class="form-label mt-1" for="typePasswordX">Heslo</label>
                                     </div>
 
-                                    <div data-mdb-input-init class="form-outline form-white mb-2">
+                                    <div class="form-outline form-white mb-2">
                                         <input type="password" name="password2" id="typePasswordX" class="form-control form-control-md" required />
                                         <label class="form-label mt-1" for="typePasswordX">Heslo znovu</label>
                                     </div>
 
                                     <hr>
+
+                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+                                    <!-- Přihlašovací údaje --> 
+                                    <p class="text-white-50 mb-3">Příchutě!</p>
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-outline form-white">
+                                                <input type="text" name="favor" id="typeEmailX" class="form-control form-control-md" placeholder='10' required />
+                                                <label class="form-label mt-1" for="typeEmailX">Příchuť (standard 10%) </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div  class="form-outline form-white">
+                                                <input type="text" name="nicotine" id="typeEmailX" class="form-control form-control-md" placeholder='6' required />
+                                                <label class="form-label mt-1" for="typeEmailX">Síla nikotinu (standard 6mg)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+
+                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
                                     
                                     <!-- Tlačítko - Výběr odběru (osobní / dodání) -->
                                     <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
@@ -120,51 +146,52 @@
                                         <!-- Sekce Osobní odběr -->
                                         <div class="tab-pane fade show active" id="pills-personal" role="tabpanel" aria-labelledby="pills-personal-tab">
                                             <input class="btn btn-outline-light btn-lg px-5" type="submit" name="osobni" value="Registrovat se" />
-                                            <!-- <input type="hidden" name="delivery_method" value="osobni"> -->
-                                            <!-- <button type="submit" class="btn btn-outline-light btn-lg px-5 mt-3">Registrovat se 4</button> -->
                                         </div>
+
+                                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
                                         <!-- Sekce Poslat na adresu -->
                                         <div class="tab-pane fade" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
 
                                             <p class="text-white-50 mb-3">Doručovací údaje!</p>
 
-                                            <div data-mdb-input-init class="form-outline form-white mb-2">
+                                            <div class="form-outline form-white mb-2">
                                                 <input type="email" name="email" id="typePasswordX" class="form-control form-control-md"  />
                                                 <label class="form-label mt-1" for="typePasswordX">E-mail</label>
                                             </div> 
 
-                                            <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                <input type="text" name="address" id="typeEmailX" class="form-control form-control-md"  />
+                                            <div class="form-outline form-white mb-3">
+                                                <input type="text" name="address" id="typeEmailX" class="form-control form-control-md"  required />
                                                 <label class="form-label mt-1" for="typeEmailX">Adresa</label>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-8">
-                                                    <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                        <input type="text" name="city" id="typeEmailX" class="form-control form-control-md"  />
-                                                        <label class="form-label mt-1" for="typeEmailX">Město</label>
+                                                    <div class="form-outline form-white mb-3">
+                                                        <input type="text" name="city" id="typeCityX" class="form-control form-control-md"  />
+                                                        <label class="form-label mt-1" for="typeCityX">Město</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
-                                                    <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                        <input type="text" name="psc" id="typeEmailX" class="form-control form-control-md" />
-                                                        <label class="form-label mt-1" for="typeEmailX">PSČ</label>
+                                                    <div class="form-outline form-white mb-3">
+                                                        <input type="text" name="psc" id="typePscX" class="form-control form-control-md" />
+                                                        <label class="form-label mt-1" for="typePscX">PSČ</label>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div data-mdb-input-init class="form-outline form-white mb-3">
-                                                <input type="text" name="phone" id="typeEmailX" class="form-control form-control-md" />
-                                                <label class="form-label mt-1" for="typeEmailX">Telefonní číslo</label>
+                                            <div class="form-outline form-white mb-3">
+                                                <input type="text" name="phone" id="typePhoneX" class="form-control form-control-md" />
+                                                <label class="form-label mt-1" for="typePhoneX">Telefonní číslo</label>
                                             </div>
-                                            
+
+                                            <!-- Button -->
                                             <input class="btn btn-outline-light btn-lg px-5" type="submit" name="adresa" value="Registrovat se" />
-                                            <!-- <input type="hidden" name="delivery_method2" value="adresa"> -->
-                                            <!-- <button type="submit" class="btn btn-outline-light btn-lg px-5">Registrovat se 2</button> -->
 
                                         </div>
-                                    </div>                    
+                                    </div> 
+                                    
+                                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
                                 </form> 
 

@@ -65,7 +65,7 @@
                         <h5 class="mb-0">Tvůj detail</h5>
                     </div>
 
-                    <form class="mt-4">
+                    <form action="submit_order.php" method="post" class="mt-4">
                         <div data-mdb-input-init class="form-outline form-white mb-3">
                             <label class="form-label" for="typeExp">Jméno a příjmení:</label>
                             <label class="form-control form-control-lg"><?php echo(YourName($_SESSION['user'])) ; ?></label>
@@ -111,31 +111,33 @@
 
                         </div>
 
+                    
+
+
+                      <hr class="my-4">
+
+                      <div class="d-flex justify-content-between">
+                        <p class="mb-2">Celkem:</p>
+                        <p class="mb-2"><?php echo TotalPrice(); ?> Kč</p>
+                      </div>
+
+                      <div class="d-flex justify-content-between">
+                        <p class="mb-2">Doprava:</p>
+                        <p class="mb-2"><?php echo YourDelivery($_SESSION['user']); ?> Kč</p>
+                      </div>
+
+                      <div class="d-flex justify-content-between mb-4">
+                        <p class="mb-2">Dohromady:</p>
+                        <p class="mb-2"><?php echo TotalPrice() + YourDelivery($_SESSION['user']); ?> Kč</p>
+                      </div>
+
+
+                      <button type='submit' value='dokoncit' class="btn btn-light btn-lg w-100 d-flex justify-content-between">
+                          <span><?php echo TotalPrice() + YourDelivery($_SESSION['user']); ?> Kč</span>
+                          <span>Dokončit</span>
+                      </button>
+
                     </form>
-
-
-                    <hr class="my-4">
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Celkem:</p>
-                      <p class="mb-2"><?php echo TotalPrice(); ?> Kč</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Doprava:</p>
-                      <p class="mb-2"><?php echo YourDelivery($_SESSION['user']); ?> Kč</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2">Dohromady:</p>
-                      <p class="mb-2"><?php echo TotalPrice() + YourDelivery($_SESSION['user']); ?> Kč</p>
-                    </div>
-
-
-                    <button class="btn btn-light btn-lg w-100 d-flex justify-content-between">
-                        <span><?php echo TotalPrice() + YourDelivery($_SESSION['user']); ?> Kč</span>
-                        <span>Dokončit</span>
-                    </button>
 
                   </div>
                 </div>
